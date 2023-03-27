@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Animated } from "react-native";
 
 const ButtonContainer = styled(TouchableOpacity)`
   padding: ${(props) => props.theme.space[3]};
@@ -14,10 +14,27 @@ const ButtonContainer = styled(TouchableOpacity)`
   align-items: center;
 `;
 
-export const RecordButton = () => {
+export const RecordButton = ({ status, onPress }) => {
+  let icon = status ? "square" : "microphone";
+  let color = status ? "red" : "black";
+  const scale = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    if (status) {
+      Animated.timing(scale, { toValue: 0.5, useNativeDriver: true }).start();
+    }
+  }, [status]);
   return (
-    <ButtonContainer>
-      <MaterialCommunityIcons name={"microphone"} size={100} color={"black"} />
+    <ButtonContainer
+      onPress={() => {
+        scale.setValue(1);
+
+        onPress();
+      }}
+    >
+      <Animated.View style={{ transform: [{ scale }] }}>
+        <MaterialCommunityIcons name={icon} size={100} color={color} />
+      </Animated.View>
     </ButtonContainer>
   );
 };

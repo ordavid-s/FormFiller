@@ -1,5 +1,6 @@
 {
   "expo": {
+    "plugins": ["@react-native-voice/voice"],
     "name": "FormFiller",
     "slug": "FormFiller",
     "version": "1.0.0",
@@ -16,14 +17,19 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ordavid.FormFiller"
+      "bundleIdentifier": "com.ordavid.FormFiller",
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "This app uses speech recognition to convert your speech to text.",
+        "NSCameraUsageDescription": "This app uses the camera to let user put a photo in his profile page."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.ordavid.FormFiller"
+      "package": "com.ordavid.FormFiller",
+      "permissions": ["android.permission.RECORD_AUDIO"]
     },
     "web": {
       "favicon": "./assets/favicon.png"

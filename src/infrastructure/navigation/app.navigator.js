@@ -43,7 +43,8 @@ const createScreenOptions = ({ route }) => {
 
 export const AppNavigator = () => (
   <Tab.Navigator screenOptions={createScreenOptions}>
-    <Tab.Screen name="Form" component={EmptyView} />
     <Tab.Screen name="Record" component={RecordScreen} />
+
+    <Tab.Screen name="Form" component={EmptyView} />
   </Tab.Navigator>
 );
