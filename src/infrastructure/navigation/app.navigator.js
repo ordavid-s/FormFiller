@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { View, Button } from "react-native";
 
+import { SpeechToTextContextProvider } from "../../services/speechToText/speechToText.context";
 import { ChatGptContextProvider } from "../../services/chatgpt/chatgpt.context";
 import { RecordScreen } from "../../features/record/screens/record.screen";
 import { SafeArea } from "../../components/utility/safe-area.component";
@@ -44,9 +45,11 @@ const createScreenOptions = ({ route }) => {
 
 export const AppNavigator = () => (
   <ChatGptContextProvider>
-    <Tab.Navigator screenOptions={createScreenOptions}>
-      <Tab.Screen name="Record" component={RecordScreen} />
-      <Tab.Screen name="Form" component={EmptyView} />
-    </Tab.Navigator>
+    <SpeechToTextContextProvider>
+      <Tab.Navigator screenOptions={createScreenOptions}>
+        <Tab.Screen name="Record" component={RecordScreen} />
+        <Tab.Screen name="Form" component={EmptyView} />
+      </Tab.Navigator>
+    </SpeechToTextContextProvider>
   </ChatGptContextProvider>
 );
