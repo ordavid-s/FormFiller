@@ -7,9 +7,9 @@ import { SpeechToTextContextProvider } from "../../services/speechToText/speechT
 import { ChatGptContextProvider } from "../../services/chatgpt/chatgpt.context";
 import { RecordScreen } from "../../features/record/screens/record.screen";
 import { SafeArea } from "../../components/utility/safe-area.component";
-import { TaskScreen } from "../../features/tasks/screens/tasks.screen";
-
-const Tab = createBottomTabNavigator();
+import { MyWeb } from "../../features/AR/screens/ar.screen";
+import { ChatContextProvider } from "../../services/chat/chat.context";
+import { ChatbotContextProvider } from "../../services/chatbot/chatbot.context";
 
 const EmptyView = () => {
   return (
@@ -44,15 +44,19 @@ const createScreenOptions = ({ route }) => {
     tabBarInactiveTintColor: "gray",
   };
 };
+const Tab = createBottomTabNavigator();
 
 export const AppNavigator = () => (
   <ChatGptContextProvider>
     <SpeechToTextContextProvider>
-      <Tab.Navigator screenOptions={createScreenOptions}>
-        <Tab.Screen name="Record" component={RecordScreen} />
-        <Tab.Screen name="Form" component={EmptyView} />
-        <Tab.Screen name="Tasks" component={TaskScreen} />
-      </Tab.Navigator>
+      <ChatbotContextProvider>
+        <ChatContextProvider>
+          <Tab.Navigator screenOptions={createScreenOptions}>
+            <Tab.Screen name="Record" component={RecordScreen} />
+            <Tab.Screen name="World" component={MyWeb} />
+          </Tab.Navigator>
+        </ChatContextProvider>
+      </ChatbotContextProvider>
     </SpeechToTextContextProvider>
   </ChatGptContextProvider>
 );

@@ -29,6 +29,38 @@ const MicIcon = styled(MaterialCommunityIcons)`
   position: absolute;
 `;
 
+/* ofek's shit*/
+export const RecordButtonOfek = ({ status, onPress, voiceScale }) => {
+  let icon = status ? "square" : "microphone";
+  let color = status ? "red" : "black";
+  if (!voiceScale) {
+    voiceScale = 0.5;
+  }
+  const scale = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    if (status) {
+      Animated.timing(scale, { toValue: 0.5, useNativeDriver: true }).start();
+    }
+  }, [status]);
+
+  return (
+    <ButtonContainer
+      onPress={() => {
+        scale.setValue(1);
+
+        onPress();
+      }}
+    >
+      <Animated.View style={{ transform: [{ scale }] }}>
+        <MicIconContainer>
+          <MicIcon name={icon} size={100} color={color} />
+        </MicIconContainer>
+      </Animated.View>
+    </ButtonContainer>
+  );
+};
+
 export const RecordButton = ({ status, onPress, voiceScale }) => {
   let icon = status ? "square" : "microphone";
   let color = status ? "red" : "black";

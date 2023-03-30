@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Platform } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import { Permissions } from "expo";
+import * as permissions from "react-native-permissions";
+// you may also import just the functions or constants that you will use from this library
+import { request, PERMISSIONS } from "react-native-permissions";
 
 import {
   useFonts as useOswald,
@@ -14,6 +16,20 @@ import { theme } from "./src/infrastructure/theme";
 
 // import { Navigation } from "./src/infrastructure/navigation";
 
+const requestCameraPermission = async () => {
+  try {
+    request(
+      Platform.OS === "ios"
+        ? PERMISSIONS.IOS.CAMERA
+        : PERMISSIONS.ANDROID.CAMERA
+    ).then((result) => {
+      console.log(result);
+    });
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
 export default function App() {
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -24,7 +40,6 @@ export default function App() {
   });
 
   // ask for permissions (android)
-
   useEffect(() => {
     const askPermAudio = async () => {
       const { status, expires, permissions } = await Permissions.askAsync(
@@ -38,6 +53,7 @@ export default function App() {
       }
       askPermAudio();
     };
+    requestCameraPermission();
   }, []);
 
   if (!oswaldLoaded || !latoLoaded) {

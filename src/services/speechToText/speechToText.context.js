@@ -39,25 +39,25 @@ export const SpeechToTextContextProvider = ({ children }) => {
 
   const onSpeechError = (e) => {
     //Invoked when an error occurs.
-    console.log("onSpeechError: ", e);
+    // console.log("onSpeechError: ", e);
     setError(JSON.stringify(e.error));
   };
 
   const onSpeechResults = (e) => {
     //Invoked when SpeechRecognizer is finished recognizing
-    console.log("onSpeechResults: ", e);
+    // console.log("onSpeechResults: ", e);
     setResults(e.value);
   };
 
   const onSpeechPartialResults = (e) => {
     //Invoked when any results are computed
-    console.log("onSpeechPartialResults: ", e);
+    // console.log("onSpeechPartialResults: ", e);
     setPartialResults(e.value);
   };
 
   const onSpeechVolumeChanged = (e) => {
     //Invoked when pitch that is recognized changed
-    console.log("onSpeechVolumeChanged: ", e);
+    // console.log("onSpeechVolumeChanged: ", e);
     setPitch(e.value);
   };
 
@@ -65,6 +65,7 @@ export const SpeechToTextContextProvider = ({ children }) => {
     //Starts listening for speech for a specific locale
     try {
       await Voice.start("en-US");
+      // await Voice.start("he");
       setPitch("");
       setError("");
       setStarted("");

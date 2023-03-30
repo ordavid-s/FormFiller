@@ -27,13 +27,20 @@ export const RecordScreen = ({ navigation }) => {
     setIsRecording(!isRecording);
     if (!isRecording) {
       startRecognizing();
-      //   setChatgptInput((oldInput) => [
-      //     ...oldInput,
-      //     "Hi Joe how are you doing I’m ok really bored. That sucks im sorry to hear hopefully you can play some games later today I really hope so I have here a couple questions if you don’t mind sure how is your pain do you still have any yeah it hurts a bit when I walk could you give me level of pain from one to ten around a 4 have you managed to go to the bathroom at all no not yet I can’t rly walk too much any vomitting no none so far and is the medicine helping yeah it reduces the pain a lot thank you I really hope you feel better",
-      //   ]);
     } else {
-      stopRecognizing();
-      console.log("final results: ", results);
+      const recFunc = async () => {
+        stopRecognizing();
+      };
+      recFunc().then(() => {
+        setChatgptInput((oldInput) => results);
+        // function sleep(ms) {
+        //   return new Promise((resolve) => setTimeout(resolve, ms));
+        // }
+        // sleep(2000);
+
+        // navigation.navigate("AR");
+        console.log(`rec results: ${results}`);
+      });
     }
   };
   return (
