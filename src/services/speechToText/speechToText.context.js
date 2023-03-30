@@ -72,7 +72,6 @@ export const SpeechToTextContextProvider = ({ children }) => {
       setPartialResults([]);
       setEnd("");
     } catch (e) {
-      //eslint-disable-next-line
       console.error(e);
     }
   };
@@ -82,7 +81,6 @@ export const SpeechToTextContextProvider = ({ children }) => {
     try {
       await Voice.stop();
     } catch (e) {
-      //eslint-disable-next-line
       console.error(e);
     }
   };
@@ -92,7 +90,6 @@ export const SpeechToTextContextProvider = ({ children }) => {
     try {
       await Voice.cancel();
     } catch (e) {
-      //eslint-disable-next-line
       console.error(e);
     }
   };
@@ -108,7 +105,6 @@ export const SpeechToTextContextProvider = ({ children }) => {
       setPartialResults([]);
       setEnd("");
     } catch (e) {
-      //eslint-disable-next-line
       console.error(e);
     }
   };
@@ -118,6 +114,7 @@ export const SpeechToTextContextProvider = ({ children }) => {
       value={{
         error,
         startRecognizing,
+        results,
         stopRecognizing,
       }}
     >

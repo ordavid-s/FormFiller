@@ -20,7 +20,8 @@ export const RecordScreen = ({ navigation }) => {
   const { setChatgptInput, chatgptInput, chatgptResponse } =
     useContext(ChatGptContext);
 
-  const { startRecognizing, stopRecognizing } = useContext(SpeechToTextContext);
+  const { startRecognizing, stopRecognizing, results } =
+    useContext(SpeechToTextContext);
 
   const onRecord = () => {
     setIsRecording(!isRecording);
@@ -32,6 +33,7 @@ export const RecordScreen = ({ navigation }) => {
       //   ]);
     } else {
       stopRecognizing();
+      console.log("final results: ", results);
     }
   };
   return (

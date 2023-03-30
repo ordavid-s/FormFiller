@@ -14,9 +14,27 @@ const ButtonContainer = styled(TouchableOpacity)`
   align-items: center;
 `;
 
-export const RecordButton = ({ status, onPress }) => {
+const MicIconContainer = styled(MaterialCommunityIcons)`
+  padding: ${(props) => props.theme.space[2]};
+  align-items: center;
+  border-radius: 100px;
+  justify-content: center;
+`;
+
+const MicCover = styled.View`
+  overflow: hidden;
+`;
+
+const MicIcon = styled(MaterialCommunityIcons)`
+  position: absolute;
+`;
+
+export const RecordButton = ({ status, onPress, voiceScale }) => {
   let icon = status ? "square" : "microphone";
   let color = status ? "red" : "black";
+  if (!voiceScale) {
+    voiceScale = 0.5;
+  }
   const scale = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
@@ -24,6 +42,7 @@ export const RecordButton = ({ status, onPress }) => {
       Animated.timing(scale, { toValue: 0.5, useNativeDriver: true }).start();
     }
   }, [status]);
+
   return (
     <ButtonContainer
       onPress={() => {
@@ -33,7 +52,9 @@ export const RecordButton = ({ status, onPress }) => {
       }}
     >
       <Animated.View style={{ transform: [{ scale }] }}>
-        <MaterialCommunityIcons name={icon} size={100} color={color} />
+        <MicIconContainer>
+          <MicIcon name={icon} size={100} color={color} />
+        </MicIconContainer>
       </Animated.View>
     </ButtonContainer>
   );
