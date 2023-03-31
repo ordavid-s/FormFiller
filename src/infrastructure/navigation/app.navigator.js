@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { View, Button } from "react-native";
 
@@ -34,17 +37,21 @@ const TAB_ICON = {
 
 const createScreenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
-  const headerShown = route.name === "Settings" ? false : false;
+  const headerShown = route.name === "World" ? true : false;
   return {
     tabBarIcon: ({ size, color }) => (
       <MaterialCommunityIcons name={iconName} size={size} color={color} />
     ),
     headerShown: headerShown,
-    tabBarActiveTintColor: "tomato",
-    tabBarInactiveTintColor: "gray",
+
+    // tabBarActiveTintColor: "tomato",
+    // tabBarInactiveTintColor: "gray",
   };
 };
-const Tab = createBottomTabNavigator();
+// cardStyle: {
+//   backgroundColor: "#483d8b",
+// }
+const Tab = createStackNavigator();
 
 export const AppNavigator = () => (
   <ChatGptContextProvider>

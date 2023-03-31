@@ -9,6 +9,8 @@ const LoadingContainer = styled.View`
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 200px;
+  width: 200px;
 `;
 
 export const LoadingWheel = () => {

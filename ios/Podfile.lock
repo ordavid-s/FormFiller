@@ -336,7 +336,7 @@ PODS:
     - ReactCommon/turbomodule/core
   - react-native-voice (3.2.4):
     - React-Core
-  - react-native-webview (11.23.0):
+  - react-native-webview (11.26.1):
     - React-Core
   - React-perflogger (0.71.4)
   - React-RCTActionSheet (0.71.4):
@@ -421,6 +421,10 @@ PODS:
     - React-perflogger (= 0.71.4)
   - RNCAsyncStorage (1.18.1):
     - React-Core
+  - RNGestureHandler (2.9.0):
+    - React-Core
+  - RNPermissions (3.8.0):
+    - React-Core
   - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
@@ -481,6 +485,8 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -592,6 +598,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSVG:
@@ -637,7 +647,7 @@ SPEC CHECKSUMS:
   React-logger: 0d58569ec51d30d1792c5e86a8e3b78d24b582c6
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   react-native-voice: f5e8eec2278451d0017eb6a30a6ccc726aca34e0
-  react-native-webview: e771bc375f789ebfa02a26939a57dbc6fa897336
+  react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
   React-perflogger: 0bb0522a12e058f6eb69d888bc16f40c16c4b907
   React-RCTActionSheet: bfd675a10f06a18728ea15d82082d48f228a213a
   React-RCTAnimation: 2fa220b2052ec75b733112aca39143d34546a941
@@ -652,6 +662,8 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 8fa50b38df6b992c76537993a2b0553d3b088004
   ReactCommon: 1fed1243105330aa50ad7051207b61656f5e570b
   RNCAsyncStorage: b90b71f45b8b97be43bc4284e71a6af48ac9f547
+  RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
+  RNPermissions: 3f20f906591a103044d5245a2e6bddb700b0a01a
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   Yoga: 79dd7410de6f8ad73a77c868d3d368843f0c93e0

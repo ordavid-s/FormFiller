@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { WebView } from "react-native-webview";
+import { ActivityIndicator, Colors } from "react-native-paper";
+import { SafeArea } from "../../../components/utility/safe-area.component";
+import { ChatGptContext } from "../../../services/chatgpt/chatgpt.context";
+import { LoadingWheel } from "../../../components/loading/loading.component";
 
 export const MyWeb = () => {
+  const { isLoading, url } = useContext(ChatGptContext);
+
   return (
-    <WebView
-      source={{
-        uri: "https://mywebar.com/p/Project_0_ur1wnhcojn?_ga=2.148663666.414931257.1680202510-2146608335.1680202510",
-      }}
-    />
+    <SafeArea>
+      {!isLoading ? (
+        <WebView
+          source={{
+            uri: url,
+          }}
+        />
+      ) : (
+        <LoadingWheel />
+      )}
+    </SafeArea>
   );
 };

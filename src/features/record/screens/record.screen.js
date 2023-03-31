@@ -6,7 +6,10 @@ import Voice from "@react-native-voice/voice";
 import { SpeechToTextContext } from "../../../services/speechToText/speechToText.context";
 import { ChatGptContext } from "../../../services/chatgpt/chatgpt.context";
 import { SafeArea } from "../../../components/utility/safe-area.component";
-import { RecordButton } from "../components/record-button.component";
+import {
+  RecordButton,
+  MicrophoneButton,
+} from "../components/record-button.component";
 // import Voice from "@react-native-voice/voice";
 
 const ScreenContainer = styled.View`
@@ -38,7 +41,7 @@ export const RecordScreen = ({ navigation }) => {
         // }
         // sleep(2000);
 
-        // navigation.navigate("AR");
+        navigation.navigate("World");
         console.log(`rec results: ${results}`);
       });
     }
