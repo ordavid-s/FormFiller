@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import styled from "styled-components";
-import Voice from "@react-native-voice/voice";
 
 import { SpeechToTextContext } from "../../../services/speechToText/speechToText.context";
 import { ChatGptContext } from "../../../services/chatgpt/chatgpt.context";

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { WebView } from "react-native-webview";
-import { ActivityIndicator, Colors } from "react-native-paper";
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { ChatGptContext } from "../../../services/chatgpt/chatgpt.context";
 import { LoadingWheel } from "../../../components/loading/loading.component";
